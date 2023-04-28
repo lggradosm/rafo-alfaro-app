@@ -24,6 +24,13 @@ export default {
       animation:{
         rightToLeft: "rightToLeft 1.5s ease-in-out ",
         leftToRight:"leftToRight 1.5s ease-in-out"
+      },
+   
+      minHeight:{
+        defaultPage:"calc(100vh - 26rem) "
+      },
+      padding:{
+        headerPage:"5rem"
       }
     },
   },

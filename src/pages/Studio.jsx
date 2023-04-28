@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Studio() {
   return (
-    <div>Studio</div>
+    <div className='page'>Studio</div>
   )
 }

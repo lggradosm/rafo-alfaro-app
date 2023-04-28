@@ -7,7 +7,7 @@ import whatsapp from "/icons/whatsapp.svg"
 
 export default function Footer() {
   return (
-    <footer className='w-full mt-36 bg-neutral-800'>
+    <footer className='w-full h-[17rem] mt-36 bg-neutral-800'>
         <div className=' flex flex-col items-center justify-center gap-4 py-10  text-white'>
             <img src={logo} alt="" className='w-16 h-16'/>
             <ul className='flex gap-12 my-4'>

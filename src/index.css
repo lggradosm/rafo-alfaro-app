@@ -24,6 +24,11 @@
   background: #353535;
 }
 
-html{
-  scroll-behavior: smooth; -webkit-scroll-behavior: smooth
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+}
+
+.page{
+  @apply min-h-defaultPage pt-headerPage
 }

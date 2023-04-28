@@ -27,14 +27,14 @@ export default function Header() {
     window.addEventListener("scroll",activeNavByScroll)
     
   return (
-    <div className={`fixed z-30 top-0 left-0 w-full  ${headerActive?"bg-white text-black shadow-default":"bg-transparent text-white"}  `}>
+    <div className={`fixed z-30 top-0 left-0 w-full flex justify-center duration-300  ${headerActive?"bg-white h-20 text-black shadow-default":" h-22 bg-transparent text-white"}  `}>
         <div className={` p-4 flex container mx-auto px-10  items-center justify-between gap-4 duration-200  `}>
         <NavLink to={"/"}><img src={`${headerActive?logoBlack:logoWhite}`} alt="logotipo rafo alfaro" className={`duration-200 ${headerActive?"w-10":"w-16"}`} /></NavLink>
 
         <ul className={`flex justify-center gap-10  duration-100 font-bold `}>
             <li><NavLink to={"/proyectos"} className={({isActive})=> isActive?"font-bold":""+`hover:underline p-2`} >PROYECTOS</NavLink></li>
             <li><NavLink to={"/estudio"}  className={({isActive})=> isActive?"font-bold":"" +`hover:underline p-2`} >ESTUDIO</NavLink></li>
-            <li><NavLink to={"/#contacto"}  className={`hover:underline p-2`}>CONTACTO</NavLink></li>
+            <li><NavLink to={"/contacto"}  className={({isActive})=> isActive?"font-bold":"" +`hover:underline p-2`}>CONTACTO</NavLink></li>
         </ul>
     </div>
        

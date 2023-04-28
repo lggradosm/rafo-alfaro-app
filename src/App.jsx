@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import Projects from './pages/Projects'
 import Studio from './pages/Studio'
 import Footer from './components/Footer/Footer'
+import Contact from './pages/Contact'
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
           <Route  element={<Home />} path={"/*"} />
           <Route  element={<Projects />} path={"/proyectos"} />
           <Route  element={<Studio />} path={"/estudio"} />
+          <Route  element={<Contact />} path={"/contacto"} />
+
         </Routes>
         </div>
         <Footer />
