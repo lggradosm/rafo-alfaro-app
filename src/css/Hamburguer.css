@@ -3,8 +3,10 @@
   --width: 50px;
   --heigh: 50px;
   --separation: 6px;
-  --active-color: #f6f6f6;
+  --highlight-color: #f6f6f6;
   --line-width: 50%;
+  --color-default: white;
+  --color-active: black;
 }
 .hamburguer {
   display: flex;
@@ -29,7 +31,7 @@
 .lines,
 .lines:before,
 .lines:after {
-  background: #ffffff;
+  background: var(--color-default);
   display: inline-block;
   height: 2px;
   border-radius: 5px;
@@ -57,7 +59,7 @@
 }
 
 .hamburguer:active {
-  background-color: var(--active-color);
+  background-color: var(--highlight-color);
   transition: all linear 200ms;
 }
 
@@ -81,43 +83,53 @@
   animation: var(--timing-animation) closeHamburguerMiddle forwards;
 }
 @keyframes openHamburguerTop {
-  50% {
+  50%,
+  100% {
     top: 0;
+    background-color: var(--color-active);
   }
   100% {
-    top: 0px;
     transform: rotate(90deg);
   }
 }
 @keyframes openHamburguerBottom {
-  50% {
+  50%,
+  100% {
     top: 0px;
+    background-color: var(--color-active);
   }
 
   100% {
-    top: 0px;
     opacity: 100;
   }
 }
 @keyframes openHamburguerMiddle {
+  50%,
+  100% {
+    background-color: var(--color-active);
+  }
   100% {
     transform: rotate(45deg);
   }
 }
 @keyframes closeHamburguerTop {
   0% {
+    background-color: var(--color-active);
     top: 0px;
     transform: rotate(90deg);
   }
+
   50% {
     transform: rotate(0deg);
   }
   100% {
     top: var(--separation);
+    background-color: var(--color-default);
   }
 }
 @keyframes closeHamburguerBottom {
   0% {
+    background-color: var(--color-active);
     top: 0px;
     opacity: 100;
   }
@@ -127,17 +139,22 @@
 
   100% {
     top: calc(var(--separation) * -1);
+    background-color: var(--color-default);
+
     opacity: 100;
   }
 }
 @keyframes closeHamburguerMiddle {
   0% {
+    background-color: var(--color-active);
+
     transform: rotate(45deg);
   }
   50% {
     transform: rotate(0deg);
   }
   100% {
+    background-color: var(--color-default);
     transform: rotate(0deg);
   }
 }

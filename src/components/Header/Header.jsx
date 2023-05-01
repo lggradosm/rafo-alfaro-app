@@ -6,53 +6,29 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Hamburguer from "./Hamburguer";
 import useVisibility from "../../hooks/useVisibility";
+import useSelectedCategory from "../../hooks/useSelectedCategory";
 
 export default function Header() {
-  console.log("Hola");
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
-  const SCROLL_Y_TRIGGER = 100;
-
-  const [headerActive, setHeaderActive] =
-    currentRoute.pathname === "/" ? useState(false) : useState(true);
-
-  const isHomePage = () => {
-    if (currentRoute.pathname === "/") return true;
-    return false;
-  };
-
-  const activeNavByScroll = () => {
-    if (window.scrollY < SCROLL_Y_TRIGGER && isHomePage())
-      setHeaderActive(false);
-    else setHeaderActive(true);
-  };
-
+  const category = useSelectedCategory();
   useEffect(() => {
-    window.scrollY < SCROLL_Y_TRIGGER && isHomePage()
-      ? setHeaderActive(false)
-      : setHeaderActive(true);
     window.scrollTo({
       top: 0,
-      behavior: "auto",
     });
   }, [currentRoute]);
 
-  window.addEventListener("scroll", activeNavByScroll);
-
   return (
     <div
-      className={`fixed z-30 top-0 left-0 w-full flex justify-center duration-300  ${
-        headerActive
-          ? "bg-white h-20 text-black shadow-default"
-          : " h-22 bg-transparent text-white"
-      }  `}
+      className={`fixed z-30 top-0 left-0 w-full flex justify-center duration-300 bg-neutral-900/50 backdrop-blur-[3px]
+        `}
     >
       <div
         className={`fixed block md:hidden w-screen h-screen duration-300 bg-white ${
           hamburguerButton.isVisible ? "left-0" : "left-full "
         }`}
       >
-        <ul className="w-full h-full flex flex-col justify-center items-center text-black">
+        <ul className="w-full h-full flex flex-col justify-center items-center tracking-widest text-black">
           <li className=" w-full p-10 text-center">
             <NavLink
               to={"/proyectos"}
@@ -61,7 +37,10 @@ export default function Header() {
                   ? "font-bold"
                   : "" + `hover:underline block w-full h-full`
               }
-              onClick={() => hamburguerButton.toggle()}
+              onClick={() => {
+                hamburguerButton.toggle();
+                category.selectCategory("Todo");
+              }}
             >
               PROYECTOS
             </NavLink>
@@ -99,49 +78,53 @@ export default function Header() {
       >
         <NavLink to={"/"}>
           <img
-            src={`${headerActive ? logoBlack : logoWhite}`}
+            src={logoWhite}
             alt="logotipo rafo alfaro"
-            className={`duration-200 ${
-              headerActive ? "w-7 lg:w-10" : " w-10 lg:w-16"
-            }`}
+            className={`duration-200 w-7 lg:w-10 `}
           />
         </NavLink>
         <div className="md:hidden block ">
           <Hamburguer
-            changeColorWhen={headerActive}
             visbility={hamburguerButton.isVisible}
             trigger={hamburguerButton.toggle}
           />
         </div>
 
         <ul
-          className={`hidden justify-center gap-10  duration-100 md:text-sm lg:text-md font-bold md:flex`}
+          className={`hidden justify-center gap-10 h-full  duration-100 md:text-sm text-white tracking-widest lg:text-md font-bold md:flex`}
         >
-          <li>
+          <li className="h-full flex__center  ">
             <NavLink
               to={"/proyectos"}
               className={({ isActive }) =>
-                isActive ? "font-bold" : "" + `hover:underline p-4`
+                isActive
+                  ? "font-bold"
+                  : "" + `hover:underline h-full flex__center`
               }
+              onClick={() => category.selectCategory("Todo")}
             >
               PROYECTOS
             </NavLink>
           </li>
-          <li>
+          <li className="h-full flex__center ">
             <NavLink
               to={"/estudio"}
               className={({ isActive }) =>
-                isActive ? "font-bold" : "" + `hover:underline p-4`
+                isActive
+                  ? "font-bold"
+                  : "" + `hover:underline h-full flex__center`
               }
             >
               ESTUDIO
             </NavLink>
           </li>
-          <li>
+          <li className="h-full flex__center ">
             <NavLink
               to={"/contacto"}
               className={({ isActive }) =>
-                isActive ? "font-bold" : "" + `hover:underline p-4`
+                isActive
+                  ? "font-bold"
+                  : "" + `hover:underline h-full flex__center`
               }
             >
               CONTACTO

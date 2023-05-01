@@ -2,12 +2,13 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
+import Projects from "./pages/Projects/Projects";
 import Studio from "./pages/Studio";
 import Footer from "./components/Footer/Footer";
 import Contact from "./pages/Contact";
 import PrivacyPolicies from "./pages/PrivacyPolicies";
 import CookiesPolicies from "./pages/CookiesPolicies";
+import ProjectDetail from "./pages/Projects/ProjectDetail";
 
 function App() {
   return (
@@ -20,8 +21,11 @@ function App() {
           <Routes>
             <Route element={<Home />} path={"/*"} />
             <Route element={<Projects />} path={"/proyectos"} />
+            <Route element={<ProjectDetail />} path={"/proyectos/*"} />
+
             <Route element={<Studio />} path={"/estudio"} />
             <Route element={<Contact />} path={"/contacto"} />
+
             <Route
               element={<PrivacyPolicies />}
               path={"/politica-de-privacidad"}

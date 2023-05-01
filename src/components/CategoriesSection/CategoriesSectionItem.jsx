@@ -1,6 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 
-export default function ProjectCategoryItem({ image, direction, category }) {
+export default function CategoriesSectionItem({
+  image,
+  direction,
+  category,
+  onClick,
+}) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -11,9 +17,11 @@ export default function ProjectCategoryItem({ image, direction, category }) {
     observer.observe(ref.current);
   }, []);
   return (
-    <div
+    <NavLink
+      to={"/proyectos"}
       ref={ref}
       className="px-mobilePage text-white w-full md:px-10 lg:px-36"
+      onClick={onClick}
     >
       <div
         className={` relative w-full ${
@@ -29,7 +37,7 @@ export default function ProjectCategoryItem({ image, direction, category }) {
         <img
           src={image + ""}
           alt="asd"
-          className="w-60 md:w-72 lg:w-80 xl:w-96 grayscale group-hover:grayscale-0 duration-300 "
+          className="w-60 md:w-72 lg:w-80  grayscale group-hover:grayscale-0 duration-300 "
         />
         <div
           className={`xl:px-20 absolute   w-full flex justify-center ${
@@ -39,7 +47,7 @@ export default function ProjectCategoryItem({ image, direction, category }) {
           } top-1/2`}
         >
           <h3
-            className={`text-lg md:text-2xl  lg:text-3xl  font-bold mx-10  ${
+            className={`text-lg md:text-2xl  lg:text-3xl  font-bold mx-10 uppercase ${
               direction === "left" ? " lg:text-end" : " lg:text-start"
             } tracking-wider  `}
           >
@@ -54,6 +62,6 @@ export default function ProjectCategoryItem({ image, direction, category }) {
           </div>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }

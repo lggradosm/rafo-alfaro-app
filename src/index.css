@@ -4,34 +4,47 @@
 
 body {
   -webkit-tap-highlight-color: transparent;
+  -highlight-color: transparent;
 }
+
+@font-face {
+  font-family: "Widescreen Trial";
+  src: url("/fonts/WidescreenEx_Trial_Rg.ttf");
+}
+
 /* width */
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 8px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background: #111111;
   border-radius: 2px;
   width: 4px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover {
   background: #353535;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-scroll-behavior: smooth;
 }
 
 .page {
   @apply min-h-defaultPage pt-headerPage;
+}
+
+.container {
+  @apply max-w-[1065px]  px-6 xl:px-0 mx-auto;
+}
+
+.flex__center {
+  @apply flex flex-col justify-center items-center;
+}
+.flex__between {
+  @apply flex justify-between;
 }

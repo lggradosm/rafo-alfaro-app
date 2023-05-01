@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+
   theme: {
     extend: {
       boxShadow: {
@@ -26,8 +27,11 @@ export default {
         defaultPage: "calc(20rem) ",
       },
       padding: {
-        headerPage: "5rem",
+        headerPage: "6rem",
         mobilePage: "1.5rem",
+      },
+      fontFamily: {
+        widescreen: ["Widescreen Trial", "Roboto"],
       },
     },
   },
