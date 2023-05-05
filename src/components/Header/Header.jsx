@@ -12,6 +12,10 @@ export default function Header() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
   const category = useSelectedCategory();
+
+  
+
+
   useEffect(() => {
     window.scrollTo({
       top: 0,

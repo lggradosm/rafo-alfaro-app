@@ -34,6 +34,11 @@ body::-webkit-scrollbar-thumb:hover {
   background: #353535;
 }
 
+.body__scroll-hiden{
+  overflow: hidden;
+}
+
+
 .page {
   @apply min-h-defaultPage pt-headerPage;
 }
