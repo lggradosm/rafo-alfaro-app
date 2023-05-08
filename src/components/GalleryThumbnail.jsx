@@ -7,7 +7,7 @@ import { Mousewheel, Navigation, Zoom } from "swiper";
 import "../css/GalleryThumbnail.css"
 export default function GalleryThumbnail({images}) {
     const MAX_IMAGES_THUMB = 5
-    const MIN_PROGRESS_TO_ACTIVE_NAV = 0.0
+    const MIN_PROGRESS_TO_ACTIVE_NAV = 0.03
     const NAV_BUTTON_INITIAL_STATE = {left:false,right:true}
     const [imageSelected, setImageSelected] = useState(0);
     

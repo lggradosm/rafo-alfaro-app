@@ -16,7 +16,7 @@ export default function ProjectDetail() {
         <div className=" flex flex-col mb-4">
           <div className="flex flex-col md:flex-row items-start mb-2 md:mb-0 md:items-center justify-between">
             <div className="font-bold font-widescreen">
-              <h1 className="text-xl md:text-3xl text-neutral-800 tracking-wide">
+              <h1 className="text-xl md:text-3xl  text-neutral-800 tracking-wide animate-[appear_2s_ease-in-out_forwards]">
                 {project.title}
               </h1>
               <h3 className=" my-4 text-sm md:text-md">{project.subtitle}</h3>

@@ -19,9 +19,9 @@ export default function Projects() {
               to={item.url}
               key={index}
               style={{ backgroundImage: `url(${item.featuredImage})` }}
-              className="cursor-pointer relative w-full aspect-square duration-500 group bg-cover bg-center bg-no-repeat"
+              className={`cursor-pointer relative w-full aspect-square  group bg-cover bg-center bg-no-repeat animate-[appear_1000ms_ease-in-out_forwards]  `}
             >
-              <div className="absolute w-full h-full group-hover:opacity-0 duration-700 ease-linear">
+              <div className="absolute w-full h-full  group-hover:opacity-0 duration-700 ease-linear ">
                 <img src={item.coverImage} className=" w-full h-full " alt="" />
                 <div className="w-full absolute bottom-5 text-center bg-neutral-950/60 py-2 ">
                   <h3 className="text-white text-xs lg:text-sm tracking-wider">

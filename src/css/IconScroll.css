@@ -15,10 +15,10 @@
 }
 .icon-scroll:before {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: #fff;
-  margin-left: -4px;
+  margin-left: -3px;
   top: 8px;
   border-radius: 4px;
   animation-duration: 1.5s;
@@ -31,7 +31,7 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(46px);
+    transform: translateY(30px);
   }
 }
 @-webkit-keyframes scroll {
@@ -40,7 +40,7 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(46px);
+    transform: translateY(30px);
   }
 }
 @-o-keyframes scroll {
@@ -49,7 +49,7 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(46px);
+    transform: translateY(30px);
   }
 }
 @keyframes scroll {
@@ -58,6 +58,6 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(46px);
+    transform: translateY(30px);
   }
 }
