@@ -88,7 +88,7 @@ export const dummy = [
     images: [
       "/tmp/master-suite-1.jpg",
       "/tmp/master-suite-2.jpg",
-      "/tmp/master-suite-3.jpg",
+      "/tmp/master-suite-4.jpg",
     ],
     url: "bano-master-suite",
     year: 2020,
