@@ -8,7 +8,7 @@ export default function Projects() {
   const { filterData } = useProjectsFilter();
   const category = useSelectedCategory();
   return (
-    <div className="page ">
+    <div className="page loaded-page__animation">
       <div className=" container flex__center">
         <div className="w-full md:w-3/5 ">
           <ProjectNav />
@@ -19,7 +19,7 @@ export default function Projects() {
               to={item.url}
               key={index}
               style={{ backgroundImage: `url(${item.featuredImage})` }}
-              className={`cursor-pointer relative w-full aspect-square  group bg-cover bg-center bg-no-repeat animate-[appear_1000ms_ease-in-out_forwards]  `}
+              className={`cursor-pointer relative w-full aspect-square  group bg-cover bg-center bg-no-repeat animate-[appearWithScale_1000ms_ease-in-out_forwards]  `}
             >
               <div className="absolute w-full h-full  group-hover:opacity-0 duration-700 ease-linear ">
                 <img src={item.coverImage} className=" w-full h-full " alt="" />

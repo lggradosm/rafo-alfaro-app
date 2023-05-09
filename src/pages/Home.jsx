@@ -5,7 +5,7 @@ import CategoriesSection from "../components/CategoriesSection/CategoriesSection
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full min-h-screen flex flex-col loaded-page__animation">
       <SliderProjects />
       {/* <div className='container mx-auto h-[800px]  bg-[url("./src/assets/images/img-home-2.jpg")] bg-no-repeat bg-cover bg-center'>
             

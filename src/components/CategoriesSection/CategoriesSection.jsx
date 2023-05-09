@@ -35,18 +35,21 @@ export default function CategoriesSection() {
             direction={"left"}
             category={"Arquitectura"}
             onClick={() => category.selectCategory("Arquitectura")}
+            redirect={"/proyectos"}
           />
           <CategoriesSectionItem
             image={image2}
             direction={"right"}
             category={"Interiorismo"}
             onClick={() => category.selectCategory("Interiorismo")}
+            redirect={"/proyectos"}
           />
           <CategoriesSectionItem
             image={image3}
             direction={"left"}
             category={"Construcción"}
             onClick={() => category.selectCategory("Construcción")}
+            redirect={"/proyectos"}
           />
         </div>
       </div>

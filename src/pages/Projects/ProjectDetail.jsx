@@ -4,14 +4,11 @@ import projectService from "../../services/projectService";
 
 import GalleryThumbnail from "../../components/GalleryThumbnail";
 export default function ProjectDetail() {
- 
-
   const route = useLocation().pathname.split("/")[2];
   const project = projectService().filter((item) => item.url === route)[0];
 
-
   return (
-    <div className="relative page container">
+    <div className="relative page container loaded-page__animation">
       <div className="w-full mx-auto   ">
         <div className=" flex flex-col mb-4">
           <div className="flex flex-col md:flex-row items-start mb-2 md:mb-0 md:items-center justify-between">
@@ -32,7 +29,6 @@ export default function ProjectDetail() {
         </div>
         <GalleryThumbnail images={project.images} />
       </div>
-
     </div>
   );
 }

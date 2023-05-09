@@ -34,10 +34,9 @@ body::-webkit-scrollbar-thumb:hover {
   background: #353535;
 }
 
-.body__scroll-hiden{
+.body__scroll-hiden {
   overflow: hidden;
 }
-
 
 .page {
   @apply min-h-defaultPage pt-headerPage;
@@ -52,4 +51,10 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .flex__between {
   @apply flex justify-between;
+}
+.header-text__shadow {
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+}
+.loaded-page__animation {
+  @apply animate-[appearWithOpacity_600ms_ease-in-out_none];
 }

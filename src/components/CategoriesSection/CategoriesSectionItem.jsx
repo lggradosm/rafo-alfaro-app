@@ -6,6 +6,7 @@ export default function CategoriesSectionItem({
   direction,
   category,
   onClick,
+  redirect,
 }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -18,7 +19,7 @@ export default function CategoriesSectionItem({
   }, []);
   return (
     <NavLink
-      to={"/proyectos"}
+      to={redirect}
       ref={ref}
       className="px-mobilePage text-white w-full md:px-10 lg:px-36"
       onClick={onClick}

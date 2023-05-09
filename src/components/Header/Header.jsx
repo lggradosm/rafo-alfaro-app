@@ -13,9 +13,6 @@ export default function Header() {
   const currentRoute = useLocation();
   const category = useSelectedCategory();
 
-  
-
-
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -24,7 +21,7 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed z-30 top-0 left-0 w-full flex justify-center duration-300 bg-neutral-900/50 backdrop-blur-[3px]
+      className={`fixed z-10  top-0 left-0 w-full flex justify-center duration-300 bg-neutral-900/50 backdrop-blur-[3px]
         `}
     >
       <div
@@ -84,7 +81,7 @@ export default function Header() {
           <img
             src={logoWhite}
             alt="logotipo rafo alfaro"
-            className={`duration-200 w-7 lg:w-10 `}
+            className={`duration-200 w-6 lg:w-8 `}
           />
         </NavLink>
         <div className="md:hidden block ">
@@ -102,7 +99,7 @@ export default function Header() {
               to={"/proyectos"}
               className={({ isActive }) =>
                 isActive
-                  ? "font-bold"
+                  ? "header-text__shadow text-black font-black"
                   : "" + `hover:underline h-full flex__center`
               }
               onClick={() => category.selectCategory("Todo")}
@@ -115,7 +112,7 @@ export default function Header() {
               to={"/estudio"}
               className={({ isActive }) =>
                 isActive
-                  ? "font-bold"
+                  ? "header-text__shadow text-black font-black"
                   : "" + `hover:underline h-full flex__center`
               }
             >
@@ -127,7 +124,7 @@ export default function Header() {
               to={"/contacto"}
               className={({ isActive }) =>
                 isActive
-                  ? "font-bold"
+                  ? "header-text__shadow text-black font-black"
                   : "" + `hover:underline h-full flex__center`
               }
             >
