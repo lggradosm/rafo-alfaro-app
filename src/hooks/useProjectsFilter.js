@@ -3,7 +3,7 @@ import useSelectedCategory from "./useSelectedCategory";
 import projectService from "../services/projectService";
 
 export const useProjectsFilter = () => {
-  const data = projectService();
+  const [data,setData] = useState(projectService());
   const [filterData, setFilterData] = useState(data);
   const category = useSelectedCategory();
 
@@ -13,11 +13,15 @@ export const useProjectsFilter = () => {
       setFilterData(data.filter((item) => item.category === category.selected));
   };
 
+  const duplicate = ()=>{
+    setData((prev)=>prev.concat(data))
+  }
+
   useEffect(() => {
     doFilterData();
-  }, [category.selected]);
+  }, [category.selected,data]);
 
-  return { filterData };
+  return { filterData, duplicate };
 };
 
 export default useProjectsFilter;

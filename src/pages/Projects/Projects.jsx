@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ProjectNav from "@components/ProjectNav/ProjectNav";
 import useProjectsFilter from "@hooks/useProjectsFilter";
 import { NavLink } from "react-router-dom";
+import useNearScreen from "../../hooks/useNearScreen";
+import debounce from "just-debounce-it";
 export default function Projects() {
-  const { filterData } = useProjectsFilter();
+  const { filterData,duplicate } = useProjectsFilter();
+  const externalRef = useRef()
+  const {isNearScreen,elementRef} = useNearScreen({ once:false,externalRef})
+  const handleNextPage = ()=>{
+    duplicate()
+  }
+  const debounceHandleNextPage = useCallback(debounce(handleNextPage,500),[])
+  useEffect(()=>{
+    if(isNearScreen) debounceHandleNextPage()
+  },[debounceHandleNextPage,isNearScreen])
+
   return (
-    <div className="page loaded-page__animation">
-      <div className=" container flex__center">
-        <div className="w-full md:w-3/5 ">
+    <div className="page ">
+      <div className=" container   ">
+        <div className="w-full md:w-3/5  mx-auto ">
           <ProjectNav />
         </div>
-        <div className="w-full my-8 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6">
+        <div className="w-full my-8 grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6">
           {filterData.map((item, index) => (
             <NavLink
               to={item.url}
@@ -29,7 +41,13 @@ export default function Projects() {
             </NavLink>
           ))}
         </div>
+           <div ref={externalRef} > 
+
+      </div> 
+       
       </div>
+      
+    
     </div>
   );
 }

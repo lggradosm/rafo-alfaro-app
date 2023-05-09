@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
+import useNearScreen from "@hooks/useNearScreen";
 
 export default function CategoriesSectionItem({
   image,
@@ -8,34 +9,24 @@ export default function CategoriesSectionItem({
   onClick,
   redirect,
 }) {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries,observer) => {
-      const entry = entries[0]
-      if (entry.isIntersecting) {
-        setVisible(true)
-        observer.disconnect()
-      };
-    });
-    observer.observe(ref.current)
-  }, []);
+  const {isNearScreen,elementRef} = useNearScreen()
+ 
   return (
     <NavLink
       to={redirect}
-      ref={ref}
+      ref={elementRef}
       className="px-mobilePage text-white w-full md:px-10 lg:px-36"
       onClick={onClick}
     >
       <div
         className={` relative w-full ${
-          visible ? "opacity-1" : "opacity-0"
+          isNearScreen ? "opacity-1" : "opacity-0"
         } group cursor-pointer flex justify-center ${
           direction === `left`
             ? `md:justify-start   
-    ${visible ? "animate-rightToLeft" : " "}`
+    ${isNearScreen ? "animate-rightToLeft" : " "}`
             : `md:justify-end 
-     ${visible ? " animate-leftToRight" : ""}`
+     ${isNearScreen ? " animate-leftToRight" : ""}`
         } `}
       >
         <img
