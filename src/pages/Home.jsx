@@ -1,7 +1,7 @@
 import React from "react";
-import LastProjects from "../components/LastProjects/LastProjects";
-import SliderProjects from "../components/SliderProjects/SliderProjects";
-import CategoriesSection from "../components/CategoriesSection/CategoriesSection";
+import LastProjects from "@components/LastProjects/LastProjects";
+import SliderProjects from "@components/SliderProjects/SliderProjects";
+import CategoriesSection from "@components/CategoriesSection/CategoriesSection";
 
 export default function Home() {
   return (

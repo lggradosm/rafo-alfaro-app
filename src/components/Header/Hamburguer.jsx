@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../css/Hamburguer.css";
-import useVisibility from "../../hooks/useVisibility";
+import "@css/Hamburguer.css";
 
 export default function Hamburguer({ changeColorWhen, visbility, trigger }) {
   const [active, setActive] = useState(false);

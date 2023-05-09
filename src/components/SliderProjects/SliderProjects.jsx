@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from "swiper";
-import "../../css/Swipe.css"
+import "@css/Swipe.css"
 import "swiper/swiper.min.css";
 import "swiper/css/pagination";
-import "../../css/IconScroll.css"
+import "@css/IconScroll.css"
 
 const slide_img = [
   "/images/1.jpg",

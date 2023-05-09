@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import useVisibility from "../hooks/useVisibility";
+import useVisibility from "@hooks/useVisibility";
 import {
   ChevronRightIcon,
   ChevronLeftIcon,

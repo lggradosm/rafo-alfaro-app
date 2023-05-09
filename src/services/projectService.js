@@ -1,4 +1,4 @@
-import dummy from "../util/dummy";
+import dummy from "@util/dummy";
 export const projectService = () => {
   return dummy;
 };

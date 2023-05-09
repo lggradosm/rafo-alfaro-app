@@ -3,7 +3,7 @@ import image1 from "/images/casa-nb-1.jpg";
 import image2 from "/images/interior-jay-lounge-4.jpg";
 import image3 from "/images/casa-de-campo-t18-1.jpg";
 import logo from "/images/logo-white_retina.png";
-import useSelectedCategory from "../../hooks/useSelectedCategory";
+import useSelectedCategory from "@hooks/useSelectedCategory";
 import CategoriesSectionItem from "./CategoriesSectionItem";
 
 export default function CategoriesSection() {

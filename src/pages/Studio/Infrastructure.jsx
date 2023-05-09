@@ -1,6 +1,6 @@
 import React from "react";
-import infraestructureImages from "../../util/infraestructuraDummy";
-import GalleryThumbnail from "../../components/GalleryThumbnail";
+import infraestructureImages from "@util/infraestructuraDummy";
+import GalleryThumbnail from "@components/GalleryThumbnail";
 export default function Infrastructure() {
   console.log(infraestructureImages);
   return (

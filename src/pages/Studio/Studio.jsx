@@ -2,7 +2,7 @@ import React from "react";
 import image from "/images/home-nosotros.jpg";
 import signature from "/images/firma.png";
 import rafoAlfarPhoto from "/images/rafo-alfaro.jpg";
-import CategoriesSectionItem from "../../components/CategoriesSection/CategoriesSectionItem";
+import CategoriesSectionItem from "@components/CategoriesSection/CategoriesSectionItem";
 import logo from "/images/logo-white_retina.png";
 import team from "/images/nosotros_equipo.jpg";
 import us from "/images/nosotros_estudio.jpg";
@@ -32,8 +32,8 @@ export default function Studio() {
           <img src={rafoAlfarPhoto} alt="" className="" />
         </div>
       </div>
-      <div className=" bg-neutral-950  flex__center lg:py-48 mt-24  ">
-        <div className="relative w-[70%]  flex items-start  flex-col overflow-hidden gap-10 lg:gap-20 ">
+      <div className=" bg-neutral-950   flex__center lg:py-48 mt-24  ">
+        <div className="relative container flex items-start  flex-col overflow-hidden gap-10 lg:gap-20 ">
           <div className="absolute w-full h-full  left-0 top-  flex justify-center">
             <img
               src={logo}

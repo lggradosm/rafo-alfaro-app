@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProjectNavItem from "./ProjectNavItem";
-import useSelectedCategory from "../../hooks/useSelectedCategory";
+import useSelectedCategory from "@hooks/useSelectedCategory";
 
 export default function ProjectNav() {
   const selected = useSelectedCategory();

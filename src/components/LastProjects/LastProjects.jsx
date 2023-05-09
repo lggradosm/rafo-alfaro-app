@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LastProjectItem from "./LastProjectItem";
-import projectService from "../../services/projectService";
+import projectService from "@services/projectService";
 
 const data = projectService().slice(Math.max(projectService().length - 6));
 

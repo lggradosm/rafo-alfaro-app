@@ -1,5 +1,5 @@
 import React from "react";
-import useSelectedCategory from "../../hooks/useSelectedCategory";
+import useSelectedCategory from "@hooks/useSelectedCategory";
 
 export default function ProjectNavItem({ name, onClick }) {
   const category = useSelectedCategory();

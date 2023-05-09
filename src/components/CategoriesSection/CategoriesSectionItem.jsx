@@ -11,11 +11,14 @@ export default function CategoriesSectionItem({
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      if (entry.isIntersecting) setVisible(true);
+    const observer = new IntersectionObserver((entries,observer) => {
+      const entry = entries[0]
+      if (entry.isIntersecting) {
+        setVisible(true)
+        observer.disconnect()
+      };
     });
-    observer.observe(ref.current);
+    observer.observe(ref.current)
   }, []);
   return (
     <NavLink

@@ -1,16 +1,16 @@
 import { useState } from "react";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects/Projects";
-import Studio from "./pages/Studio/Studio";
-import Footer from "./components/Footer/Footer";
-import Contact from "./pages/Contact";
-import PrivacyPolicies from "./pages/PrivacyPolicies";
-import CookiesPolicies from "./pages/CookiesPolicies";
-import ProjectDetail from "./pages/Projects/ProjectDetail";
-import Team from "./pages/Studio/Team";
-import Infrastructure from "./pages/Studio/Infrastructure";
+import Home from "@pages/Home";
+import Projects from "@pages/Projects/Projects";
+import Studio from "@pages/Studio/Studio";
+import Footer from "@components/Footer/Footer";
+import Contact from "@pages/Contact";
+import PrivacyPolicies from "@pages/PrivacyPolicies";
+import CookiesPolicies from "@pages/CookiesPolicies";
+import ProjectDetail from "@pages/Projects/ProjectDetail";
+import Team from "@pages/Studio/Team";
+import Infrastructure from "@pages/Studio/Infrastructure";
 
 function App() {
   return (
