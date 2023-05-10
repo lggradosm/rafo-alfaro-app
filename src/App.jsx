@@ -11,10 +11,14 @@ import CookiesPolicies from "@pages/CookiesPolicies";
 import ProjectDetail from "@pages/Projects/ProjectDetail";
 import Team from "@pages/Studio/Team";
 import Infrastructure from "@pages/Studio/Infrastructure";
+import usePageLoadStatus from "./hooks/usePageLoadStatus";
 
 function App() {
+  const pageState = usePageLoadStatus()
+
   return (
     <BrowserRouter forceRefresh>
+      
       <main className="relative  box-border overflow-hidden">
         <div className="w-full ">
           <Header />
@@ -46,6 +50,7 @@ function App() {
         </div>
         <Footer />
       </main>
+ 
     </BrowserRouter>
   );
 }
