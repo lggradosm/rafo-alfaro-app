@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import coverImagesService from "@services/coverImagesServices"
+import { trackPromise } from "react-promise-tracker"
 
 export default function useCoverImagesFetch (){
     const [loaded, setLoaded] = useState(false)
@@ -7,13 +8,12 @@ export default function useCoverImagesFetch (){
 
     useEffect(()=>{
         coverImagesService().then((res)=> {
-      
           setData(res)
           setLoaded(true)
         }
-      
           )
 
+       
       },[])
     
     return {data,loaded}
