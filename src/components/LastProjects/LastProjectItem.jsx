@@ -5,7 +5,7 @@ export default function LastProjectItem({ item }) {
   console.log(item.images);
   return (
     <li className="w-full overflow-hidden   group cursor-pointer">
-      <NavLink to={"proyectos/" + item.url}>
+      <NavLink to={item.url}>
         <div
           style={{ backgroundImage: `url(${item.featuredImage})` }}
           className={`relative w-full h-[300px] bg-no-repeat bg-cover bg-center rounded-sm`}
