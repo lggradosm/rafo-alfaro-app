@@ -12,6 +12,7 @@ export default function Header() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
   const category = useSelectedCategory();
+  const url = import.meta.env.BASE_URL;
 
   useEffect(() => {
     window.scrollTo({
@@ -32,7 +33,7 @@ export default function Header() {
         <ul className="w-full h-full flex flex-col justify-center items-center tracking-widest text-black">
           <li className=" w-full p-10 text-center">
             <NavLink
-              to={"/proyectos"}
+              to={`${url}/proyectos`}
               className={({ isActive }) =>
                 isActive
                   ? "font-bold"
@@ -48,7 +49,7 @@ export default function Header() {
           </li>
           <li className="w-full p-10 text-center">
             <NavLink
-              to={"/estudio"}
+              to={`${url}/estudio`}
               className={({ isActive }) =>
                 isActive
                   ? "font-bold"
@@ -61,7 +62,7 @@ export default function Header() {
           </li>
           <li className="w-full p-10 text-center">
             <NavLink
-              to={"/contacto"}
+              to={`${url}/contacto`}
               className={({ isActive }) =>
                 isActive
                   ? "font-bold"
@@ -96,7 +97,7 @@ export default function Header() {
         >
           <li className="h-full flex__center  ">
             <NavLink
-              to={"/proyectos"}
+              to={`${url}/proyectos`}
               className={({ isActive }) =>
                 isActive
                   ? "header-text__shadow text-black font-black"
@@ -109,7 +110,7 @@ export default function Header() {
           </li>
           <li className="h-full flex__center ">
             <NavLink
-              to={"/estudio"}
+              to={`${url}/estudio`}
               className={({ isActive }) =>
                 isActive
                   ? "header-text__shadow text-black font-black"
@@ -121,7 +122,7 @@ export default function Header() {
           </li>
           <li className="h-full flex__center ">
             <NavLink
-              to={"/contacto"}
+              to={`${url}/contacto`}
               className={({ isActive }) =>
                 isActive
                   ? "header-text__shadow text-black font-black"
