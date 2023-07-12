@@ -4,9 +4,8 @@ import projectService from "../../services/projectService";
 
 import GalleryThumbnail from "../../components/GalleryThumbnail";
 export default function ProjectDetail() {
-  const route = useLocation().pathname.split("/")[2];
+  const route = useLocation().pathname;
   const project = projectService().filter((item) => item.url === route)[0];
-
   return (
     <div className="relative page container loaded-page__animation">
       <div className="w-full mx-auto   ">

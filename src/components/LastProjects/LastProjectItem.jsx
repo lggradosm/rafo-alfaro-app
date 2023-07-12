@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function LastProjectItem({ item }) {
-  console.log(item.images);
   return (
     <li className="w-full overflow-hidden   group cursor-pointer">
       <NavLink to={item.url}>
