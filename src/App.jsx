@@ -14,11 +14,10 @@ import Infrastructure from "@pages/Studio/Infrastructure";
 import usePageLoadStatus from "./hooks/usePageLoadStatus";
 
 function App() {
-  const pageState = usePageLoadStatus()
-
+  const pageState = usePageLoadStatus();
+  const url = import.meta.env.BASE_URL;
   return (
     <BrowserRouter forceRefresh>
-      
       <main className="relative  box-border overflow-hidden">
         <div className="w-full ">
           <Header />
@@ -26,17 +25,17 @@ function App() {
         <div className=" ">
           <Routes>
             <Route element={<Home />} path={"/*"} />
-            <Route element={<Projects />} path={"/proyectos"} />
-            <Route element={<ProjectDetail />} path={"/proyectos/*"} />
+            <Route element={<Projects />} path={`${url}/proyectos`} />
+            <Route element={<ProjectDetail />} path={`${url}/proyectos/*`} />
 
-            <Route element={<Studio />} path={"/estudio"} />
-            <Route element={<Team />} path={"/estudio/equipo"} />
+            <Route element={<Studio />} path={`${url}/estudio`} />
+            <Route element={<Team />} path={`${url}/estudio/equipo`} />
             <Route
               element={<Infrastructure />}
-              path={"/estudio/instalaciones"}
+              path={`${url}/estudio/instalaciones`}
             />
 
-            <Route element={<Contact />} path={"/contacto"} />
+            <Route element={<Contact />} path={`${url}/contacto`} />
 
             <Route
               element={<PrivacyPolicies />}
@@ -50,7 +49,6 @@ function App() {
         </div>
         <Footer />
       </main>
- 
     </BrowserRouter>
   );
 }
