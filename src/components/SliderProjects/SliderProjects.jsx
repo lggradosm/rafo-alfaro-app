@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "@css/IconScroll.css";
 
 export default function SliderProjects() {
-  const slide_img = ["/images/1.jpg", "/images/2.png", "/images/3.jpg"];
+  const slide_img = ["images/1.jpg", "images/2.png", "images/3.jpg"];
   const [visible, setVisible] = useState(false);
   const TIME_TO_SHOW_SCROLL_ICON = 8000;
   const SCROLL_Y_TRIGGER = 0;
