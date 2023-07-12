@@ -25,7 +25,7 @@ export default function Projects() {
         <div className="w-full md:w-3/5  mx-auto ">
           <ProjectNav />
         </div>
-        <div className="w-full my-8 grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6 mb-20">
+        <div className="w-full my-8 grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6">
           {filterData.map((item, index) => (
             <NavLink
               to={item.url}
