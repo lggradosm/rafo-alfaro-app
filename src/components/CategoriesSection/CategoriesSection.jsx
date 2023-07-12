@@ -7,6 +7,8 @@ import useSelectedCategory from "@hooks/useSelectedCategory";
 import CategoriesSectionItem from "./CategoriesSectionItem";
 
 export default function CategoriesSection() {
+  const url = import.meta.env.BASE_URL;
+
   const category = useSelectedCategory();
   return (
     <div className=" bg-neutral-950 lg:py-24 h-[70rem] lg:h-[90rem] ">
@@ -35,21 +37,21 @@ export default function CategoriesSection() {
             direction={"left"}
             category={"Arquitectura"}
             onClick={() => category.selectCategory("Arquitectura")}
-            redirect={"/proyectos"}
+            redirect={`${url}/proyectos`}
           />
           <CategoriesSectionItem
             image={image2}
             direction={"right"}
             category={"Interiorismo"}
             onClick={() => category.selectCategory("Interiorismo")}
-            redirect={"/proyectos"}
+            redirect={`${url}/proyectos`}
           />
           <CategoriesSectionItem
             image={image3}
             direction={"left"}
             category={"Construcción"}
             onClick={() => category.selectCategory("Construcción")}
-            redirect={"/proyectos"}
+            redirect={`${url}/proyectos`}
           />
         </div>
       </div>

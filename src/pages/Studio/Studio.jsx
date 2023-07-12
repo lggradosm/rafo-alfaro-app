@@ -8,6 +8,7 @@ import team from "/images/nosotros_equipo.jpg";
 import us from "/images/nosotros_estudio.jpg";
 
 export default function Studio() {
+  const url = import.meta.env.BASE_URL;
   return (
     <div className="relative loaded-page__animation">
       <div
@@ -45,13 +46,13 @@ export default function Studio() {
             image={team}
             direction={"left"}
             category={"Equipo"}
-            redirect={"/estudio/equipo"}
+            redirect={`${url}/estudio/equipo`}
           />
           <CategoriesSectionItem
             image={us}
             direction={"right"}
             category={"Estudio"}
-            redirect={"/estudio/instalaciones"}
+            redirect={`${url}/estudio/instalaciones`}
           />
         </div>
       </div>
