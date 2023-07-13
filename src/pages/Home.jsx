@@ -12,7 +12,6 @@ export default function Home() {
             
         </div> */}
       <LastProjects />
-      <CategoriesSection />
     </div>
   );
 }

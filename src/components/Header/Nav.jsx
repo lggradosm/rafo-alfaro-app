@@ -8,12 +8,12 @@ import Hamburguer from "./Hamburguer";
 import useVisibility from "../../hooks/useVisibility";
 import useSelectedCategory from "../../hooks/useSelectedCategory";
 
-export default function Header() {
+export default function Nav() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
   const category = useSelectedCategory();
   const url = import.meta.env.BASE_URL;
-
+  const underlineAfter = `after:content-[""] after:h-1 after:w-full after:asbolute after:bottom-0 after:left-0 after:bg-white text-red-500`
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -36,7 +36,7 @@ export default function Header() {
               to={`${url}/proyectos`}
               className={({ isActive }) =>
                 isActive
-                  ? "font-bold"
+                  ? `font-bold ${underlineAfter}`
                   : "" + `hover:underline block w-full h-full`
               }
               onClick={() => {
@@ -100,7 +100,7 @@ export default function Header() {
               to={`${url}/proyectos`}
               className={({ isActive }) =>
                 isActive
-                  ? "header-text__shadow text-black font-black"
+                  ? "font-black "
                   : "" + `hover:underline h-full flex__center`
               }
               onClick={() => category.selectCategory("Todo")}
@@ -113,7 +113,7 @@ export default function Header() {
               to={`${url}/estudio`}
               className={({ isActive }) =>
                 isActive
-                  ? "header-text__shadow text-black font-black"
+                  ? "font-black"
                   : "" + `hover:underline h-full flex__center`
               }
             >
@@ -125,7 +125,7 @@ export default function Header() {
               to={`${url}/contacto`}
               className={({ isActive }) =>
                 isActive
-                  ? "header-text__shadow text-black font-black"
+                  ? "font-black"
                   : "" + `hover:underline h-full flex__center`
               }
             >

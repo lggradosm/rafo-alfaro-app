@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "./components/Header/Header";
+import Nav from "./components/Header/Nav";
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import Home from "@pages/Home";
 import Projects from "@pages/Projects/Projects";
@@ -18,9 +18,9 @@ function App() {
   const url = import.meta.env.BASE_URL;
   return (
     <BrowserRouter forceRefresh>
-      <main className="relative  box-border overflow-hidden">
+      <main className="relative bg-neutral-950  box-border overflow-hidden">
         <div className="w-full ">
-          <Header />
+          <Nav />
         </div>
         <div className=" ">
           <Routes>
