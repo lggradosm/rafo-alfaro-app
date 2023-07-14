@@ -1,26 +1,31 @@
 import React, { useState } from "react";
 import ProjectNavItem from "./ProjectNavItem";
-import useSelectedCategory from "@hooks/useSelectedCategory";
 
-export default function ProjectNav() {
-  const selected = useSelectedCategory();
+export default function ProjectNav({onclick,selected}) {
   return (
-    <ul className="flex__between  w-full ">
+    <ul className="flex__between  h-full font-manrope gap-4  z-20 w-2/5 ">
       <ProjectNavItem
         name={"Todo"}
-        onClick={() => selected.selectCategory("Todo")}
+        onClick={()=>onclick("Todo")}
+        selected={selected}
       />
       <ProjectNavItem
         name={"Arquitectura"}
-        onClick={() => selected.selectCategory("Arquitectura")}
+        onClick={()=>onclick("Arquitectura")}
+        selected={selected}
+
       />
       <ProjectNavItem
         name={"Interiorismo"}
-        onClick={() => selected.selectCategory("Interiorismo")}
+        onClick={()=>onclick("Interiorismo")}
+        selected={selected}
+
       />
       <ProjectNavItem
         name={"Construcción"}
-        onClick={() => selected.selectCategory("Construcción")}
+        onClick={()=>onclick("Construcción")}
+        selected={selected}
+
       />
     </ul>
   );

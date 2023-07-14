@@ -10,7 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Zoom } from "swiper";
 import "../css/GalleryThumbnail.css";
 export default function GalleryThumbnail({ images }) {
-  const MAX_IMAGES_THUMB = 5;
+  const MAX_IMAGES_THUMB = 20;
   const MIN_PROGRESS_TO_ACTIVE_NAV = 0.03;
   const NAV_BUTTON_INITIAL_STATE = { left: false, right: true };
   const [imageSelected, setImageSelected] = useState(0);
@@ -24,6 +24,7 @@ export default function GalleryThumbnail({ images }) {
   const fullPageImage = useVisibility();
   const body = document.getElementsByTagName("body")[0];
   const thumSlideRef = useRef(null);
+  const slideRef = useRef(null);
   const thumFullSlideRef = useRef(null);
 
   const fullPageImageShow = () => {
@@ -75,29 +76,89 @@ export default function GalleryThumbnail({ images }) {
   useEffect(() => {
     thumSlideRef.current.swiper.slideTo(imageSelected);
     thumFullSlideRef.current.swiper.slideTo(imageSelected);
+    slideRef.current.swiper.slideTo(imageSelected);
     scrollSwiperMoveHandler();
     scrollFullSwiperMoveHandler();
   }, [imageSelected]);
 
   return (
-    <div>
-      <div className="flex flex-col gap-2 md:gap-4 lg:gap-8">
-        <div className="relative w-full h-auto bg-neutral-900 flex__center">
-          <img src={images[imageSelected]} className="w-full h-auto" alt="" />
+    <div className="">
+      <div className="flex flex-col gap-2 md:gap-4 lg:gap-1">
+        <div className="relative w-full bg-primaryColor flex__center">
+
+
+
+          {/* <img src={images[imageSelected]} className=" h-[80vh] " alt="" /> */}
+          <Swiper
+          slidesPerView={1}
+          direction={"horizontal"}
+          className="relative  h-[80vh]  select-none hover:cursor-grab"
+          initialSlide={imageSelected}
+          modules={[Navigation]}
+          speed={600}
+          onSlideChange={(e) => {
+            setImageSelected(e.activeIndex);
+          }}
+          onSliderMove={() => scrollFullSwiperMoveHandler()}
+          navigation={{
+            prevEl: ".full_prev",
+            nextEl: ".full_next",
+          }}
+          ref={slideRef}
+        >
+          {images.map((image, index) => (
+            <SwiperSlide
+              key={index}
+              onClick={() => setImageSelected(index)}
+              className="w-full h-[100%] flex__center "
+            >
+              <div
+                className="absolute  z-40 h-full w-full "
+                onClick={() => fullPageImageHide()}
+              />
+
+              <img
+                src={`${image}`}
+                alt=""
+                className="w-[80%] h-auto 2xl:w-auto 2xl:h-full z-40 active:cursor-grab"
+              />
+            </SwiperSlide>
+          ))}
           <div
-            className="absolute bg-black/50 rounded-full right-5 bottom-5 group  duration-300  p-3 cursor-pointer"
+            className={`z-40 absolute top-0 left-0 w-20 h-full flex__center bg-transparent  ${
+              navFullScreenButtonsVisible.left ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <ChevronLeftIcon className="full_prev w-16 text-white cursor-pointer hover:opacity-60 duration-200" />
+          </div>
+
+          <div
+            className={`z-40 absolute flex__center right-0 top-0 w-20 h-full bg-transparent ${
+              navFullScreenButtonsVisible.right ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <ChevronRightIcon className="full_next w-16 text-white cursor-pointer hover:opacity-60 duration-200" />
+          </div>
+          
+        </Swiper>
+
+
+
+          <div
+            className="absolute bg-neutral-800 rounded-full right-5 bottom-5 group  z-10 duration-300  p-3 cursor-pointer"
             onClick={() => fullPageImageShow()}
           >
             <ArrowsPointingOutIcon className="w-6  group-hover:opacity-60 duration-300 text-white" />
           </div>
         </div>
+        {/* thumbnails */}
         <Swiper
           breakpoints={{
             0: { spaceBetween: 10, slidesPerView: MAX_IMAGES_THUMB },
             768: { spaceBetween: 15, slidesPerView: MAX_IMAGES_THUMB },
-            1024: { spaceBetween: 30, slidesPerView: MAX_IMAGES_THUMB },
+            1024: { spaceBetween: 4, slidesPerView: MAX_IMAGES_THUMB },
           }}
-          className="relative !gap-5 !flex cursor-grab"
+          className="relative  !flex cursor-grab  bg-primaryColor w-full "
           navigation={{
             prevEl: ".prev",
             nextEl: ".next",
@@ -147,6 +208,12 @@ export default function GalleryThumbnail({ images }) {
             </div>
           </div>
         </Swiper>
+        
+
+
+
+
+
       </div>
 
       <div

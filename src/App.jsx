@@ -18,7 +18,7 @@ function App() {
   const url = import.meta.env.BASE_URL;
   return (
     <BrowserRouter forceRefresh>
-      <main className="relative bg-neutral-950  box-border overflow-hidden">
+      <main className="relative bg-primaryColor  box-border overflow-hidden">
         <div className="w-full ">
           <Nav />
         </div>

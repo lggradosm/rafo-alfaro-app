@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import useNearScreen from "../../hooks/useNearScreen";
 import debounce from "just-debounce-it";
 export default function Projects() {
-  const { filterData, duplicate } = useProjectsFilter();
+  const { data, duplicate } = useProjectsFilter();
   const externalRef = useRef();
   const { isNearScreen, elementRef } = useNearScreen({
     once: false,
@@ -18,30 +18,38 @@ export default function Projects() {
   useEffect(() => {
     if (isNearScreen) debounceHandleNextPage();
   }, [debounceHandleNextPage, isNearScreen]);
-
+  const [selectedCategory,setSelectedCategory] = useState("Todo");
+  const changeSelectedCategory = (category)=>{
+    setSelectedCategory(category)
+  }
   return (
     <div className="page ">
-      <div className=" container   ">
-        <div className="w-full md:w-3/5  mx-auto ">
-          <ProjectNav />
+      <div className="  relative pt-10 ">
+        <div className="w-full fixed top-[5.5rem]  ra_navbar z-20 p-4 flex justify-start   ">
+          <ProjectNav selected={selectedCategory} onclick = {changeSelectedCategory} />
         </div>
-        <div className="w-full my-8 grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6">
-          {filterData.map((item, index) => (
-            <NavLink
+        <div className="w-full my-12 grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-5 gap-1 p-1 bg-primaryColor">
+          {data.map((item, index) => (
+           <div               key={index}
+           style={{ backgroundImage: `url(${item.featuredImage})` }} className="w-full  bg-red-500 relative  aspect-square  group bg-cover bg-center bg-no-repeat opacity-0  animate-[appearWithScale_1000ms_ease-in-out_forwards] ">
+             <NavLink
               to={item.url}
-              key={index}
               style={{ backgroundImage: `url(${item.featuredImage})` }}
-              className={`cursor-pointer relative w-full aspect-square  group bg-cover bg-center bg-no-repeat opacity-0  animate-[appearWithScale_1000ms_ease-in-out_forwards]  `}
+              className={`cursor-pointer  `}
             >
-              <div className="absolute w-full h-full  group-hover:opacity-0 duration-700 ease-linear ">
+              <div className="absolute w-full h-full  group-hover:opacity-0 duration-500 ease-linear ">
                 <img src={item.coverImage} className=" w-full h-full " alt="" />
-                <div className="w-full absolute bottom-5 text-center bg-neutral-950/60 py-2 ">
-                  <h3 className="text-white text-xs lg:text-sm tracking-wider">
+                <div className="w-full absolute bottom-5 text-center bg-neutral-950/60 py-4 ">
+                  <h3 className="text-white text-xs lg:text-xl font-manrope tracking-wider">
                     {item.title}
                   </h3>
                 </div>
               </div>
+     
             </NavLink>
+            <div className={`bg-neutral-950 w-full h-full absolute ${item.category!==selectedCategory && selectedCategory!=="Todo" ? "opacity-100 duration-300 z-10":"opacity-0 -z-10 duration-300"}`}/>
+
+           </div>
           ))}
         </div>
         <div ref={externalRef}></div>

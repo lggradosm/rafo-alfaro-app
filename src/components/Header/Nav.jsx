@@ -6,24 +6,35 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Hamburguer from "./Hamburguer";
 import useVisibility from "../../hooks/useVisibility";
-import useSelectedCategory from "../../hooks/useSelectedCategory";
-
+import NavItem from "./NavItem";
+import { configureNav } from "../../util/configureNav";
 export default function Nav() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
-  const category = useSelectedCategory();
   const url = import.meta.env.BASE_URL;
-  const underlineAfter = `after:content-[""] after:h-1 after:w-full after:asbolute after:bottom-0 after:left-0 after:bg-white text-red-500`
+  const [transparentNavbar,setTransparentNavbar] = useState(false);
+  const isTransparent = ()=>{
+    for(let i = 0;i<configureNav.length;i++)
+      if(currentRoute.pathname === configureNav[i]) return true;
+    return false
+  }
   useEffect(() => {
+    console.log(isTransparent());
+    if(isTransparent())
+      setTransparentNavbar(true)
+
+    else
+      setTransparentNavbar(false)
+    
     window.scrollTo({
       top: 0,
     });
   }, [currentRoute]);
 
+  
   return (
     <div
-      className={`fixed z-10  top-0 left-0 w-full flex justify-center duration-300 bg-neutral-900/50 backdrop-blur-[3px]
-        `}
+      className={`fixed z-10  top-0 left-0 w-full flex justify-center duration-300 ${transparentNavbar?"bg-transparent":"ra_navbar"}`}
     >
       <div
         className={`fixed block md:hidden w-screen h-screen duration-300 bg-white ${
@@ -36,7 +47,7 @@ export default function Nav() {
               to={`${url}/proyectos`}
               className={({ isActive }) =>
                 isActive
-                  ? `font-bold ${underlineAfter}`
+                  ? `font-bold`
                   : "" + `hover:underline block w-full h-full`
               }
               onClick={() => {
@@ -76,13 +87,13 @@ export default function Nav() {
         </ul>
       </div>
       <div
-        className={` p-4 flex container mx-auto px-10  items-center justify-between gap-4 duration-200  `}
+        className={` p-6 flex w-full mx-auto px-10  items-center justify-between gap-4 duration-200  `}
       >
         <NavLink to={"/"}>
           <img
             src={logoWhite}
             alt="logotipo rafo alfaro"
-            className={`duration-200 w-6 lg:w-8 `}
+            className={`duration-200 w-6 lg:w-10 hover:brightness-75 `}
           />
         </NavLink>
         <div className="md:hidden block ">
@@ -93,45 +104,12 @@ export default function Nav() {
         </div>
 
         <ul
-          className={`hidden justify-center gap-10 h-full  duration-100 md:text-sm text-white tracking-widest lg:text-md font-bold md:flex`}
+          className={`hidden justify-center gap-10 h-full font-manrope duration-100 md:text-sm text-white tracking-widest lg:text-md font-bold md:flex`}
         >
-          <li className="h-full flex__center  ">
-            <NavLink
-              to={`${url}/proyectos`}
-              className={({ isActive }) =>
-                isActive
-                  ? "font-black "
-                  : "" + `hover:underline h-full flex__center`
-              }
-              onClick={() => category.selectCategory("Todo")}
-            >
-              PROYECTOS
-            </NavLink>
-          </li>
-          <li className="h-full flex__center ">
-            <NavLink
-              to={`${url}/estudio`}
-              className={({ isActive }) =>
-                isActive
-                  ? "font-black"
-                  : "" + `hover:underline h-full flex__center`
-              }
-            >
-              ESTUDIO
-            </NavLink>
-          </li>
-          <li className="h-full flex__center ">
-            <NavLink
-              to={`${url}/contacto`}
-              className={({ isActive }) =>
-                isActive
-                  ? "font-black"
-                  : "" + `hover:underline h-full flex__center`
-              }
-            >
-              CONTACTO
-            </NavLink>
-          </li>
+          <NavItem  linkName={"PROYECTOS"} link="/proyectos"/>
+          <NavItem  linkName={"ESTUDIO"}  link="/estudio"/>
+          <NavItem  linkName={"CONTACTO"}  link="/contacto"/>
+
         </ul>
       </div>
     </div>

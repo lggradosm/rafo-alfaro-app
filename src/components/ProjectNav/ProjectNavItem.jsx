@@ -1,16 +1,17 @@
 import React from "react";
-import useSelectedCategory from "@hooks/useSelectedCategory";
 
-export default function ProjectNavItem({ name, onClick }) {
-  const category = useSelectedCategory();
+export default function ProjectNavItem({ name, onClick,selected }) {
 
   return (
     <li
       onClick={() => onClick()}
-      className={`p-2 cursor-pointer relative  text-xs sm:text-sm lg:text-[1rem]  tracking-wider  after:duration-150 after:content-[''] after:w-0  after:h-[1px] after:bg-neutral-950 after:absolute after:-bottom-0 after:left-0  ${
-        category.selected === name
-          ? "after:!w-full font-bold text-neutral-950"
-          : "text-neutral-400"
+      className={`p-3 font-bold cursor-pointer hover:brightness-75 relative  text-center w-full text-xs sm:text-sm tracking-widest  uppercase
+
+      
+      ${
+        selected === name
+          ? "  text-white duration-200 block after:animate-underlineNavItem after:w-0 after:absolute after:block after:rounded-full  after:left-0 after:-bottom-0  after:h-0.5 after:bg-white"
+          : "text-white duration-200"
       }`}
     >
       {name}

@@ -4,6 +4,9 @@ export default {
 
   theme: {
     extend: {
+      backgroundColor:{
+        primaryColor:"#000"
+      },
       boxShadow: {
         default: "0 2px 3px -3px   rgba(0,0,0,.8)",
         card: "0 0 3px rgba(0,0,0,.15)",
@@ -21,6 +24,7 @@ export default {
       animation: {
         rightToLeft: "rightToLeft 1.5s ease-in-out ",
         leftToRight: "leftToRight 1.5s ease-in-out",
+        underlineNavItem: "fullWidth 150ms ease-in-out forwards"
       },
 
       minHeight: {
@@ -32,6 +36,7 @@ export default {
       },
       fontFamily: {
         widescreen: ["Widescreen Trial", "Roboto"],
+        manrope: ["Manrope","Roboto"]
       },
     },
     keyframes: {
@@ -47,6 +52,10 @@ export default {
         "0%, 100%": { transform: "rotate(-3deg)" },
         "50%": { transform: "rotate(3deg)" },
       },
+      fullWidth: {
+        "0%":{"width":"0px"},
+        "100%":{"width":"100%"}
+      }
     },
   },
   plugins: [

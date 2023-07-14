@@ -2,7 +2,6 @@ import React from "react";
 import image from "/images/home-nosotros.jpg";
 import signature from "/images/firma.png";
 import rafoAlfarPhoto from "/images/rafo-alfaro.jpg";
-import CategoriesSectionItem from "@components/CategoriesSection/CategoriesSectionItem";
 import logo from "/images/logo-white_retina.png";
 import team from "/images/nosotros_equipo.jpg";
 import us from "/images/nosotros_estudio.jpg";
@@ -42,18 +41,7 @@ export default function Studio() {
               className="w-3/5 h-full object-contain  opacity-[.05]"
             />
           </div>
-          <CategoriesSectionItem
-            image={team}
-            direction={"left"}
-            category={"Equipo"}
-            redirect={`${url}/estudio/equipo`}
-          />
-          <CategoriesSectionItem
-            image={us}
-            direction={"right"}
-            category={"Estudio"}
-            redirect={`${url}/estudio/instalaciones`}
-          />
+        
         </div>
       </div>
     </div>

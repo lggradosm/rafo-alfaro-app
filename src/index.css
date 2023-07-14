@@ -11,6 +11,25 @@ body {
   font-family: "Widescreen Trial";
   src: url("/fonts/WidescreenEx_Trial_Rg.ttf");
 }
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope-Regular.ttf");
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope-Medium.ttf");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope-Light.ttf");
+  font-weight: 300;
+}
 
 /* width */
 body::-webkit-scrollbar {
@@ -57,4 +76,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .loaded-page__animation {
   @apply animate-[appearWithOpacity_600ms_ease-in-out_none];
+}
+.ra_navbar {
+  @apply bg-neutral-900/80 backdrop-blur-[3px];
+  @apply bg-primaryColor;
 }
