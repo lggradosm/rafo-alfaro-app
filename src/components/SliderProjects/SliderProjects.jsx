@@ -7,11 +7,10 @@ import "swiper/css/pagination";
 import "@css/IconScroll.css";
 
 export default function SliderProjects() {
-  const url = import.meta.env.BASE_URL;
   const slide_img = [
-    `${url}/images/1.jpg`,
-    `${url}/images/2.png`,
-    `${url}/images/3.jpg`,
+    `/images/1.jpg`,
+    `/images/2.png`,
+    `/images/3.jpg`,
   ];
   const [visible, setVisible] = useState(false);
   const TIME_TO_SHOW_SCROLL_ICON = 8000;
@@ -40,13 +39,13 @@ export default function SliderProjects() {
   return (
     <Swiper
       effect={"coverflow"}
-      grabCursor={true}
       centeredSlides={true}
       slidesPerView={"1"}
       autoplay={{
         delay: 4000,
         disableOnInteraction: false,
       }}
+      allowTouchMove={false}
       coverflowEffect={{
         rotate: 50,
         stretch: 0,
@@ -55,12 +54,9 @@ export default function SliderProjects() {
         slideShadows: false,
       }}
       loop={true}
-      navigation={true}
       className="relative w-full h-screen "
-      pagination={{
-        dynamicBullets: true,
-      }}
-      modules={[Pagination, Navigation, Autoplay]}
+     
+      modules={[ Autoplay]}
     >
       <div
         className={`absolute animate-bounce ${

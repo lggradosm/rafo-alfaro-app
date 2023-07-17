@@ -11,24 +11,30 @@ import { configureNav } from "../../util/configureNav";
 export default function Nav() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
-  const url = import.meta.env.BASE_URL;
   const [transparentNavbar,setTransparentNavbar] = useState(false);
   const isTransparent = ()=>{
     for(let i = 0;i<configureNav.length;i++)
       if(currentRoute.pathname === configureNav[i]) return true;
     return false
   }
-  useEffect(() => {
-    console.log(isTransparent());
-    if(isTransparent())
-      setTransparentNavbar(true)
+ 
+  const handleScroll = function (){
+    console.log("hola");
 
-    else
+  }
+  useEffect(() => {
+    if(isTransparent()){
+      setTransparentNavbar(true)
+      if(window.scrollY>10 )
+       window.addEventListener("scroll",handleScroll)
+
+    }
+    else{
       setTransparentNavbar(false)
-    
-    window.scrollTo({
-      top: 0,
-    });
+
+    }
+    return ()=>window.removeEventListener("scroll",handleScroll)
+
   }, [currentRoute]);
 
   
@@ -44,7 +50,7 @@ export default function Nav() {
         <ul className="w-full h-full flex flex-col justify-center items-center tracking-widest text-black">
           <li className=" w-full p-10 text-center">
             <NavLink
-              to={`${url}/proyectos`}
+              to={`/proyectos`}
               className={({ isActive }) =>
                 isActive
                   ? `font-bold`
@@ -60,7 +66,7 @@ export default function Nav() {
           </li>
           <li className="w-full p-10 text-center">
             <NavLink
-              to={`${url}/estudio`}
+              to={`/estudio`}
               className={({ isActive }) =>
                 isActive
                   ? "font-bold"
@@ -73,7 +79,7 @@ export default function Nav() {
           </li>
           <li className="w-full p-10 text-center">
             <NavLink
-              to={`${url}/contacto`}
+              to={`/contacto`}
               className={({ isActive }) =>
                 isActive
                   ? "font-bold"

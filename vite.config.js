@@ -4,7 +4,7 @@ import { resolve } from "path";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/rafo-alfaro-app",
+  base: "/",
   resolve: {
     alias: [
       {

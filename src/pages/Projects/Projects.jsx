@@ -39,8 +39,8 @@ export default function Projects() {
             >
               <div className="absolute w-full h-full  group-hover:opacity-0 duration-500 ease-linear ">
                 <img src={item.coverImage} className=" w-full h-full " alt="" />
-                <div className="w-full absolute bottom-5 text-center bg-neutral-950/60 py-4 ">
-                  <h3 className="text-white text-xs lg:text-xl font-manrope tracking-wider">
+                <div className="w-fit absolute bottom-0 text-center bg-black p-3 ">
+                  <h3 className="text-white text-xs lg:text-[.95em] font-manrope font-bold -tracking-tight">
                     {item.title}
                   </h3>
                 </div>
