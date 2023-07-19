@@ -4,6 +4,7 @@ export default {
 
   theme: {
     extend: {
+    
       backgroundColor:{
         primaryColor:"#000"
       },
@@ -26,12 +27,15 @@ export default {
         leftToRight: "leftToRight 1.5s ease-in-out",
         underlineNavItem: "fullWidth 150ms ease-in-out forwards"
       },
-
-      minHeight: {
-        defaultPage: "calc(20rem) ",
+    
+      inset:{
+        header:"var(--navbar--height)"
       },
-      padding: {
-        headerPage: "6rem",
+      height:{
+        header:"var(--navbar--height)"
+      },
+      margin: {
+        headerPage: "var(--navbar--height)",
         mobilePage: "1.5rem",
       },
       fontFamily: {

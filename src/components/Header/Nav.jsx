@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import logoBlack from "/images/logo-black_retina.png";
 import logoWhite from "/images/logo-white_retina.png";
 import { NavLink, useLocation } from "react-router-dom";
 
-import { Bars3Icon } from "@heroicons/react/24/outline";
 import Hamburguer from "./Hamburguer";
 import useVisibility from "../../hooks/useVisibility";
 import NavItem from "./NavItem";
@@ -11,36 +9,40 @@ import { configureNav } from "../../util/configureNav";
 export default function Nav() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
-  const [transparentNavbar,setTransparentNavbar] = useState(false);
   const isTransparent = ()=>{
     for(let i = 0;i<configureNav.length;i++)
       if(currentRoute.pathname === configureNav[i]) return true;
     return false
   }
+  const [transparentNavbar,setTransparentNavbar] = isTransparent()?useState(true):useState(false);
+
+    
  
   const handleScroll = function (){
-    console.log("hola");
+    if(window.scrollY>10 && isTransparent())
+      setTransparentNavbar(false)
+    else
+    setTransparentNavbar(true)
 
   }
   useEffect(() => {
     if(isTransparent()){
       setTransparentNavbar(true)
-      if(window.scrollY>10 )
-       window.addEventListener("scroll",handleScroll)
+      window.addEventListener("scroll",handleScroll)
 
-    }
+    }    
     else{
       setTransparentNavbar(false)
+      window.removeEventListener("scroll",handleScroll)
 
     }
-    return ()=>window.removeEventListener("scroll",handleScroll)
-
+    window.scrollTo({ top: 0})
   }, [currentRoute]);
 
-  
+
   return (
     <div
-      className={`fixed z-10  top-0 left-0 w-full flex justify-center duration-300 ${transparentNavbar?"bg-transparent":"ra_navbar"}`}
+      className={`fixed z-30 h-header top-0 left-0 w-full  flex justify-center duration-500  ${transparentNavbar?"bg-transparent":"ra_navbar "}`}
     >
       <div
         className={`fixed block md:hidden w-screen h-screen duration-300 bg-white ${
@@ -93,16 +95,16 @@ export default function Nav() {
         </ul>
       </div>
       <div
-        className={` p-6 flex w-full mx-auto px-10  items-center justify-between gap-4 duration-200  `}
+        className={` p-6 flex w-full mx-auto px-5  items-center justify-between gap-4 duration-200  `}
       >
         <NavLink to={"/"}>
           <img
             src={logoWhite}
             alt="logotipo rafo alfaro"
-            className={`duration-200 w-6 lg:w-10 hover:brightness-75 `}
+            className={`duration-200 w-6 lg:w-7 hover:brightness-75 `}
           />
         </NavLink>
-        <div className="md:hidden block ">
+        <div className="sm:hidden block ">
           <Hamburguer
             visbility={hamburguerButton.isVisible}
             trigger={hamburguerButton.toggle}
@@ -110,7 +112,7 @@ export default function Nav() {
         </div>
 
         <ul
-          className={`hidden justify-center gap-10 h-full font-manrope duration-100 md:text-sm text-white tracking-widest lg:text-md font-bold md:flex`}
+          className={`hidden justify-center gap-10 h-full font-manrope duration-100 md:text-sm 2xl:text-[.8em] text-white tracking-widest lg:text-md font-bold sm:flex `}
         >
           <NavItem  linkName={"PROYECTOS"} link="/proyectos"/>
           <NavItem  linkName={"ESTUDIO"}  link="/estudio"/>

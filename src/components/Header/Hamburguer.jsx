@@ -16,7 +16,7 @@ export default function Hamburguer({ changeColorWhen, visbility, trigger }) {
 
   return (
     <div
-      className={`hamburguer z-[100] ${
+      className={`hamburguer z-50 ${
         changeColorWhen || visbility ? "active" : ""
       }  ${toggle()}`}
       onClick={() => trigger()}

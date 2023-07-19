@@ -9,12 +9,12 @@ export default function ProjectDetail() {
   const [lang,setLang] = useState("ES");
   return (
     <div className="relative page  loaded-page__animation p-4   ">
-      <div className="w-full mx-auto  flex ">
-        <div className="w-4/5 p-1">
+      <div className="w-full mx-auto  flex flex-col xl:flex-row">
+        <div className="w-full lg:w-4/5 p-1">
         <GalleryThumbnail images={project.images} />
         </div>
 
-        <div className="w-1/5 flex flex-col mb-4 text-white p-4">
+        <div className="w-full lg:w-1/5 flex flex-col mb-4 text-white p-4">
           <div className="flex flex-col md:flex-row   mb-2 md:mb-0 md:items-center justify-between">
             <div className="font-bold font-widescreen  w-full ">
               <div className="flex gap-4">

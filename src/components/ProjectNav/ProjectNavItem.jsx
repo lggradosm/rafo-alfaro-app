@@ -5,7 +5,7 @@ export default function ProjectNavItem({ name, onClick,selected }) {
   return (
     <li
       onClick={() => onClick()}
-      className={`p-3 font-bold cursor-pointer hover:brightness-75 relative  text-center w-full text-xs sm:text-sm tracking-widest  uppercase
+      className={`p-3 font-bold cursor-pointer hover:brightness-75 relative  text-center w-full text-[.5em]  sm:text-[.75em]  2xl:text-[.7em] tracking-widest  uppercase
 
       
       ${

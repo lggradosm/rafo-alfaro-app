@@ -17,11 +17,9 @@ function App() {
   const pageState = usePageLoadStatus();
   return (
     <BrowserRouter forceRefresh>
-      <main className="relative bg-primaryColor  box-border overflow-hidden">
-        <div className="w-full ">
+      <main className="relative bg-primaryColor box-border ">
           <Nav />
-        </div>
-        <div className=" ">
+        <div className="font-manrope ">
           <Routes>
             <Route element={<Home />} path={"/*"} />
             <Route element={<Projects />} path={`/proyectos`} />

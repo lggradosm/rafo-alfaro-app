@@ -1,1 +1,1 @@
-export const configureNav  = ["/","/estudio"]
+export const configureNav  = ["/","/estudio","/proyectos"]

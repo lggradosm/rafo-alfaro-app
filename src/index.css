@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --navbar--height: 3.5rem;
+}
 body {
   -webkit-tap-highlight-color: transparent;
   -highlight-color: transparent;
@@ -29,6 +31,9 @@ body {
   font-family: "Manrope";
   src: url("/fonts/Manrope-Light.ttf");
   font-weight: 300;
+}
+body {
+  @apply bg-black;
 }
 
 /* width */
@@ -58,7 +63,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .page {
-  @apply min-h-defaultPage pt-headerPage;
+  @apply min-h-screen mt-headerPage;
 }
 
 .container {
@@ -78,6 +83,7 @@ body::-webkit-scrollbar-thumb:hover {
   @apply animate-[appearWithOpacity_600ms_ease-in-out_none];
 }
 .ra_navbar {
-  @apply bg-neutral-900/80 backdrop-blur-[3px];
   @apply bg-primaryColor;
+
+  @apply bg-neutral-950/80 backdrop-blur-[3px];
 }

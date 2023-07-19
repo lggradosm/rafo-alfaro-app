@@ -3,7 +3,8 @@ import ProjectNavItem from "./ProjectNavItem";
 
 export default function ProjectNav({onclick,selected}) {
   return (
-    <ul className="flex__between  h-full font-manrope gap-4  z-20 w-2/5 ">
+    <header className="sticky top-[calc(var(--navbar--height)-1px)]  ra_navbar z-10 p-2">
+<ul className="flex__between font-manrope gap-4   w-full md:w-2/5  ">
       <ProjectNavItem
         name={"Todo"}
         onClick={()=>onclick("Todo")}
@@ -28,5 +29,7 @@ export default function ProjectNav({onclick,selected}) {
 
       />
     </ul>
+    </header>
+    
   );
 }

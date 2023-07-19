@@ -92,7 +92,7 @@ export default function GalleryThumbnail({ images }) {
           <Swiper
           slidesPerView={1}
           direction={"horizontal"}
-          className="relative  h-[80vh]  select-none hover:cursor-grab"
+          className="relative h-full  lg:h-[80vh]  select-none hover:cursor-grab"
           initialSlide={imageSelected}
           modules={[Navigation]}
           speed={600}
