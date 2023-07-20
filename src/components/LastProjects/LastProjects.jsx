@@ -7,10 +7,10 @@ const data = projectService().slice(Math.max(projectService().length - 6));
 
 export default function LastProjects() {
   return (
-    <section className="my-32 ">
-      <div className="container">
+    <section className="my-20 w-full  text-white ">
+      <div className="lg:container mx-auto w-full p-1 lg:p-0 ">
         <h2 className="font-bold text-2xl mb-10">Últimos proyectos</h2>
-        <ul className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 mt-4 gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 w-full lg:grid-cols-3 mt-4 gap-1">
           {data.map((item, index) => (
             <LastProjectItem item={item} key={index} />
           ))}

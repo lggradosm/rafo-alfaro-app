@@ -87,3 +87,28 @@ body::-webkit-scrollbar-thumb:hover {
 
   @apply bg-neutral-950/80 backdrop-blur-[3px];
 }
+
+.contact__form input:not(:placeholder-shown) + label {
+  bottom: 2.7rem;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.contact__form input:focus + label {
+  bottom: 2.7rem;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.contact__form textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+.contact__form textarea:focus + label {
+  top: -0.5rem;
+  font-weight: bold;
+  font-size: 0.7em;
+}
+
+.contact__form input(:placeholder) {
+  color: red;
+}

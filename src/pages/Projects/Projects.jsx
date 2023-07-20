@@ -37,15 +37,15 @@ export default function Projects() {
           <div className="w-full  grid  grid-cols-2  lg:grid-cols-3 xl:grid-cols-5 gap-1 p-1 bg-primaryColor">
           {data.map((item, index) => (
            <div               key={index}
-           style={{ backgroundImage: `url(${item.featuredImage})` }} className="w-full relative  aspect-square  group bg-cover bg-center bg-no-repeat opacity-0  animate-[appearWithScale_1000ms_ease-in-out_forwards] ">
+           style={{ backgroundImage: `url(${item.featuredImage})` }} className="w-full overflow-hidden relative  aspect-square  group bg-cover bg-center bg-no-repeat opacity-0  animate-[appearWithScale_1000ms_ease-in-out_forwards] ">
              <NavLink
               to={item.url}
               style={{ backgroundImage: `url(${item.featuredImage})` }}
               className={`cursor-pointer  `}
             >
-              <div className="absolute w-full h-full  group-hover:opacity-0 duration-500 ease-linear ">
-                <img src={item.coverImage} className=" w-full h-full " alt="" />
-                <div className="w-fit absolute bottom-0 text-center bg-black p-3 ">
+              <div className="absolute w-full h-full   ease-out ">
+                <img src={item.coverImage} className=" group-hover:opacity-0 duration-[350ms] ease-[cubic-bezier(.42,-0.01,.47,1)] w-full h-full " alt="" />
+                <div className="w-fit absolute bottom-0 group-hover:-bottom-10 duration-[350ms] ease-[cubic-bezier(.42,-0.01,.47,1)]  text-center bg-black p-3 ">
                   <h3 className="text-white text-[.55em] sm:text-xs lg:text-[.95em] 2xl:text-[.8em] font-manrope font-bold -tracking-tight">
                     {item.title}
                   </h3>

@@ -42,7 +42,7 @@ export default function Nav() {
 
   return (
     <div
-      className={`fixed z-30 h-header top-0 left-0 w-full  flex justify-center duration-500  ${transparentNavbar?"bg-transparent":"ra_navbar "}`}
+      className={`fixed z-30 h-header top-0 left-0 w-full  flex justify-center duration-300 ease-[cubic-bezier(.42,-0.01,.47,1)]  ${transparentNavbar?"bg-transparent":"ra_navbar "}`}
     >
       <div
         className={`fixed block md:hidden w-screen h-screen duration-300 bg-white ${

@@ -10,6 +10,8 @@ export default function CollageImage({cols=1,rows=1,image, type="image",text,nam
     videoRef?.current.play().catch(error => {
         console.error("Error attempting to play", error);
       });
+      videoRef?.current?.play();
+    console.log(videoRef);
   };
 
   useEffect(()=>{
@@ -32,15 +34,18 @@ export default function CollageImage({cols=1,rows=1,image, type="image",text,nam
     //     )}
     // </div>
 
-    <div className={`relative col-span-1 w-full h-full row-span-1 aspect-square bg-cover ${isSquare?"!aspect-square":"sm:!aspect-video lg:!aspect-auto"} ${"lg:col-span-"+cols} ${"lg:row-span-"+rows} ${rows>cols?"row-span-1 ":""} 
-    // ${cols>rows?"sm:col-span-"+cols:""} ${type==="image"?"bg-center":""} ${type==="text"?"flex__center":""}` }  >
+    <div className={`relative col-span-1 w-full h-full row-span-1 aspect-square bg-cover ${isSquare?"!aspect-square":"sm:!aspect-video lg:!aspect-auto"} ${"lg:!col-span-"+cols} ${"lg:!row-span-"+rows} ${rows>cols?"row-span-1 ":""} 
+    // ${cols>rows?"sm:col-span-"+cols:""} ${type==="image"?"bg-center":""} ${type==="text"?"flex__center":""}` }>
       {type==="video"?
-      (<video autoPlay controls={true} ref={videoRef} loop={true}  muted  className="object-center object-cover h-full w-full"  >
-              <source src={image} type="video/mp4"/>
-            </video>)
+      
+      ( <video controls playsInline ref={videoRef} loop={true} autoPlay  muted  className="object-center object-cover h-full w-full">
+      <source src={image} type="video/mp4"/>
+      Your browser does not support the video tag.
+
+    </video>)
             :( 
               <div className='h-full w-full'>
-                      <div className='bg-transparent absolute z-20 w-full h-full left-0 top-0 ' />
+                      <div className='bg-transparent absolute z-20 w-full h-full left-0 top-0 '/>
                       <img src={image} alt="" className={` object-cover object-top w-full h-full ` }/>
               </div>    
              

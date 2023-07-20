@@ -113,7 +113,7 @@ export default function SliderProjects() {
   
           >
             {element.type === "image"?(<img src={element.img} alt="" className=" w-full h-full block object-center  object-cover" />):
-            (<video autoPlay   muted  className="object-center object-cover h-full w-full"  >
+            (<video autoPlay  loop  muted  className="object-center object-cover h-full w-full"  >
               <source src={element.img} type="video/mp4"/>
             </video>)}
           </SwiperSlide>
