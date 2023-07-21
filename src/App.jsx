@@ -17,8 +17,8 @@ function App() {
   const pageState = usePageLoadStatus();
   return (
     <BrowserRouter forceRefresh>
-      <main className="relative bg-primaryColor box-border ">
-          <Nav />
+      <main className="relative bg-primaryColor box-border  flex flex-col items-stretch ">
+        <Nav />
         <div className="font-manrope ">
           <Routes>
             <Route element={<Home />} path={"/*"} />

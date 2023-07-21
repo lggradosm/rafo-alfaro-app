@@ -1,7 +1,6 @@
 import React from "react";
 
-export default function ProjectNavItem({ name, onClick,selected }) {
-
+export default function ProjectNavItem({ name, onClick, selected }) {
   return (
     <li
       onClick={() => onClick()}
@@ -10,7 +9,7 @@ export default function ProjectNavItem({ name, onClick,selected }) {
       
       ${
         selected === name
-          ? "  text-white duration-200 block after:animate-underlineNavItem after:w-0 after:absolute after:block after:rounded-full  after:left-0 after:-bottom-0  after:h-0.5 after:bg-white"
+          ? "  text-white duration-200 block after:animate-underlineNavItem after:w-0 after:absolute after:block after:rounded-full  after:left-0 after:bottom-1  after:h-0.5 after:bg-white"
           : "text-white duration-200"
       }`}
     >

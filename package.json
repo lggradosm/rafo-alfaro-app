@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
+    "@react-google-maps/api": "^2.19.0",
     "@reduxjs/toolkit": "^1.9.5",
     "gh-pages": "^5.0.0",
     "just-debounce-it": "^3.2.0",

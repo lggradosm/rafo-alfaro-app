@@ -9,40 +9,35 @@ import { configureNav } from "../../util/configureNav";
 export default function Nav() {
   const hamburguerButton = useVisibility();
   const currentRoute = useLocation();
-  const isTransparent = ()=>{
-    for(let i = 0;i<configureNav.length;i++)
-      if(currentRoute.pathname === configureNav[i]) return true;
-    return false
-  }
-  const [transparentNavbar,setTransparentNavbar] = isTransparent()?useState(true):useState(false);
+  const isTransparent = () => {
+    for (let i = 0; i < configureNav.length; i++)
+      if (currentRoute.pathname === configureNav[i]) return true;
+    return false;
+  };
+  const [transparentNavbar, setTransparentNavbar] = isTransparent()
+    ? useState(true)
+    : useState(false);
 
-    
- 
-  const handleScroll = function (){
-    if(window.scrollY>10 && isTransparent())
-      setTransparentNavbar(false)
-    else
-    setTransparentNavbar(true)
-
-  }
+  const handleScroll = function () {
+    if (window.scrollY > 10 && isTransparent()) setTransparentNavbar(false);
+    else setTransparentNavbar(true);
+  };
   useEffect(() => {
-    if(isTransparent()){
-      setTransparentNavbar(true)
-      window.addEventListener("scroll",handleScroll)
-
-    }    
-    else{
-      setTransparentNavbar(false)
-      window.removeEventListener("scroll",handleScroll)
-
+    if (isTransparent()) {
+      setTransparentNavbar(true);
+      window.addEventListener("scroll", handleScroll);
+    } else {
+      setTransparentNavbar(false);
+      window.removeEventListener("scroll", handleScroll);
     }
-    window.scrollTo({ top: 0})
+    window.scrollTo({ top: 0 });
   }, [currentRoute]);
-
 
   return (
     <div
-      className={`fixed z-30 h-header top-0 left-0 w-full  flex justify-center duration-300 ease-[cubic-bezier(.42,-0.01,.47,1)]  ${transparentNavbar?"bg-transparent":"ra_navbar "}`}
+      className={`fixed z-30 h-header top-0 left-0 w-full  flex justify-center duration-300 ease-[cubic-bezier(.42,-0.01,.47,1)]  ${
+        transparentNavbar ? "bg-transparent" : "ra_navbar "
+      }`}
     >
       <div
         className={`fixed block md:hidden w-screen h-screen duration-300 bg-white ${
@@ -95,7 +90,7 @@ export default function Nav() {
         </ul>
       </div>
       <div
-        className={` p-6 flex w-full mx-auto px-5  items-center justify-between gap-4 duration-200  `}
+        className={`  flex w-full mx-auto px-5  items-center justify-between gap-4 duration-200  `}
       >
         <NavLink to={"/"}>
           <img
@@ -112,12 +107,11 @@ export default function Nav() {
         </div>
 
         <ul
-          className={`hidden justify-center gap-10 h-full font-manrope duration-100 md:text-sm 2xl:text-[.8em] text-white tracking-widest lg:text-md font-bold sm:flex `}
+          className={`hidden  justify-center gap-10 h-full font-manrope duration-100 md:text-sm 2xl:text-[.8em] text-white tracking-widest lg:text-md font-bold sm:flex `}
         >
-          <NavItem  linkName={"PROYECTOS"} link="/proyectos"/>
-          <NavItem  linkName={"ESTUDIO"}  link="/estudio"/>
-          <NavItem  linkName={"CONTACTO"}  link="/contacto"/>
-
+          <NavItem linkName={"PROYECTOS"} link="/proyectos" />
+          <NavItem linkName={"ESTUDIO"} link="/estudio" />
+          <NavItem linkName={"CONTACTO"} link="/contacto" />
         </ul>
       </div>
     </div>

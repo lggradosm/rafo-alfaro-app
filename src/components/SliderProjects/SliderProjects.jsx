@@ -9,15 +9,18 @@ import "@css/IconScroll.css";
 export default function SliderProjects() {
   const slide_img = [
     {
-      img:"/videos/reel3.mp4",type:"video"
+      img: "/videos/reel3.mp4",
+      type: "video",
     },
-    {img:'/images/1.jpg',type:"image"},{
-    img: `/images/2.png`,type:"image"
-  },
-  {
-    img:`/images/3.jpg`, type:"image"
-  }
-   
+    { img: "/images/1.jpg", type: "image" },
+    {
+      img: `/images/2.png`,
+      type: "image",
+    },
+    {
+      img: `/images/3.jpg`,
+      type: "image",
+    },
   ];
   const [visible, setVisible] = useState(false);
   const TIME_TO_SHOW_SCROLL_ICON = 8000;
@@ -44,7 +47,6 @@ export default function SliderProjects() {
   };
   scrollvisible();
 
-
   return (
     // <Swiper
     //   effect={"coverflow"}
@@ -64,7 +66,7 @@ export default function SliderProjects() {
     //   }}
     //   loop={true}
     //   className="relative w-full h-screen "
-     
+
     //   modules={[ Autoplay]}
     // >
     //   <div
@@ -85,7 +87,7 @@ export default function SliderProjects() {
     //   })}
     // </Swiper>
     // swiper.slides[swiper.activeIndex-1])
-     <Swiper
+    <Swiper
       centeredSlides={true}
       slidesPerView={"1"}
       autoplay={{
@@ -93,11 +95,10 @@ export default function SliderProjects() {
         disableOnInteraction: false,
       }}
       allowTouchMove={false}
-   
       loop={true}
       className="relative w-full h-screen "
-      modules={[ Autoplay]}
-      >
+      modules={[Autoplay]}
+    >
       <div
         className={`absolute animate-bounce ${
           visible ? "block" : "hidden"
@@ -107,20 +108,26 @@ export default function SliderProjects() {
 
       {slide_img.map((element, i) => {
         return (
-          <SwiperSlide
-            key={i}
-            className={`relative w-full h-full`}
-  
-          >
-            {element.type === "image"?(<img src={element.img} alt="" className=" w-full h-full block object-center  object-cover" />):
-            (<video autoPlay  loop  muted  className="object-center object-cover h-full w-full"  >
-              <source src={element.img} type="video/mp4"/>
-            </video>)}
+          <SwiperSlide key={i} className={`relative w-full h-full`}>
+            {element.type === "image" ? (
+              <img
+                src={element.img}
+                alt=""
+                className=" w-full h-full block object-center  object-cover"
+              />
+            ) : (
+              <video
+                autoPlay
+                loop
+                muted
+                className="object-center object-cover h-full w-full"
+              >
+                <source src={element.img} type="video/mp4" />
+              </video>
+            )}
           </SwiperSlide>
         );
       })}
     </Swiper>
-    
-    
-    );
+  );
 }
