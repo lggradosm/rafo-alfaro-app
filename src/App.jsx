@@ -27,21 +27,8 @@ function App() {
 
             <Route element={<Studio />} path={`/estudio`} />
             <Route element={<Team />} path={`/estudio/equipo`} />
-            <Route
-              element={<Infrastructure />}
-              path={`/estudio/instalaciones`}
-            />
 
             <Route element={<Contact />} path={`/contacto`} />
-
-            <Route
-              element={<PrivacyPolicies />}
-              path={"/politica-de-privacidad"}
-            />
-            <Route
-              element={<CookiesPolicies />}
-              path={"/politica-de-cookies"}
-            />
           </Routes>
         </div>
         <Footer />
