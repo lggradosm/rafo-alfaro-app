@@ -4,9 +4,8 @@ export default {
 
   theme: {
     extend: {
-    
-      backgroundColor:{
-        primaryColor:"#000"
+      backgroundColor: {
+        primaryColor: "#000",
       },
       boxShadow: {
         default: "0 2px 3px -3px   rgba(0,0,0,.8)",
@@ -21,18 +20,23 @@ export default {
           "0%": { right: "100%", opacity: "0" },
           "50%": { right: "0px", opacity: "1" },
         },
+        loadOpacity: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
       },
       animation: {
         rightToLeft: "rightToLeft 1.5s ease-in-out ",
         leftToRight: "leftToRight 1.5s ease-in-out",
-        underlineNavItem: "fullWidth 150ms ease-in-out forwards"
+        underlineNavItem: "fullWidth 150ms ease-in-out forwards",
+        loadOpacity: "loadOpacity 200ms cubic-bezier(.42,-0.01,.47,1) forwards",
       },
-    
-      inset:{
-        header:"var(--navbar--height)"
+
+      inset: {
+        header: "var(--navbar--height)",
       },
-      height:{
-        header:"var(--navbar--height)"
+      height: {
+        header: "var(--navbar--height)",
       },
       margin: {
         headerPage: "var(--navbar--height)",
@@ -40,7 +44,7 @@ export default {
       },
       fontFamily: {
         widescreen: ["Widescreen Trial", "Roboto"],
-        manrope: ["Manrope","Roboto"]
+        manrope: ["Manrope", "Roboto"],
       },
     },
     keyframes: {
@@ -57,12 +61,10 @@ export default {
         "50%": { transform: "rotate(3deg)" },
       },
       fullWidth: {
-        "0%":{"width":"0px"},
-        "100%":{"width":"100%"}
-      }
+        "0%": { width: "0px" },
+        "100%": { width: "100%" },
+      },
     },
   },
-  plugins: [
-   
-  ],
+  plugins: [],
 };

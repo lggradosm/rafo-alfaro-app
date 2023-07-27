@@ -2,17 +2,21 @@ import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 
 export default function CollageImage({
-  cols = 1,
-  rows = 1,
   image,
   type = "image",
   text,
   name,
   position,
-  center = false,
+  size,
 }) {
-  const [isSquare, setIsSquare] = useState(false);
   const videoRef = useRef(null);
+
+  const sizeClass = {
+    bigSquare: " lg:col-span-2 lg:row-span-2 ",
+    horizontal: " lg:col-span-2  row-span-1  lg:aspect-auto",
+    vertical: " lg:row-span-2 lg:aspect-auto",
+  };
+
   const attemptPlay = () => {
     videoRef &&
       videoRef?.current &&
@@ -20,28 +24,27 @@ export default function CollageImage({
         console.error("Error attempting to play", error);
       });
     videoRef?.current?.play();
-    console.log(videoRef);
   };
 
   useEffect(() => {
     attemptPlay();
-    if (cols !== rows) setIsSquare(false);
-    else setIsSquare(true);
   }, []);
   return (
+    // <div
+    //   className={`relative col-span-1 w-full h-full row-span-1 aspect-square bg-cover ${
+    //     isSquare ? "!aspect-square" : "sm:!aspect-video lg:!aspect-auto"
+    //   } ${"lg:!col-span-" + cols} ${"lg:!row-span-" + rows} ${
+    //     rows > cols ? "row-span-1 " : ""
+    //   }
+    // // ${cols > rows ? "sm:col-span-" + cols : ""} ${
+    //     type === "image" ? "bg-center" : ""
+    //   } ${type === "text" ? "flex__center" : ""}`}
+    // >
     <div
-      className={`relative col-span-1 w-full h-full row-span-1 aspect-square bg-cover ${
-        isSquare ? "!aspect-square" : "sm:!aspect-video lg:!aspect-auto"
-      } ${"lg:!col-span-" + cols} ${"lg:!row-span-" + rows} ${
-        rows > cols ? "row-span-1 " : ""
-      } 
-    // ${cols > rows ? "sm:col-span-" + cols : ""} ${
-        type === "image" ? "bg-center" : ""
-      } ${type === "text" ? "flex__center" : ""}`}
+      className={`relative w-full h-full col-span-1 row-span-1 aspect-square ${sizeClass[size]}`}
     >
       {type === "video" ? (
         <video
-          controls
           playsInline
           ref={videoRef}
           loop={true}
@@ -63,7 +66,7 @@ export default function CollageImage({
         </div>
       )}
       {type === "text" && (
-        <span className="whitespace-pre-wrap p-6 h-full absolute left-0 top-0 bg-black text-white text-sm sm:text-sm leading-loose 2xl:text-[1em] sm:leading-relaxed flex__center">
+        <span className="whitespace-pre-wrap p-10 h-full absolute left-0 top-0 bg-black text-white text-[.9em] text-center sm:text-sm lg:text-[1em] lg:leading-relaxed leading-loose  flex__center">
           {text}
         </span>
       )}
@@ -73,7 +76,6 @@ export default function CollageImage({
           <span
             className={`font-light w-fit before:content-[""] before:h-full before:w-0.5 before:mx-2 before:bg-white  before:inline-block flex`}
           >
-            {" "}
             {position}
           </span>
         </span>

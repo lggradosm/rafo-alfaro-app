@@ -12,11 +12,12 @@ import ProjectDetail from "@pages/Projects/ProjectDetail";
 import Team from "@pages/Studio/Team";
 import Infrastructure from "@pages/Studio/Infrastructure";
 import usePageLoadStatus from "./hooks/usePageLoadStatus";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const pageState = usePageLoadStatus();
   return (
-    <BrowserRouter forceRefresh>
+    <BrowserRouter>
       <main className="relative bg-primaryColor box-border  flex flex-col items-stretch ">
         <Nav />
         <div className="font-manrope ">
@@ -29,6 +30,7 @@ function App() {
             <Route element={<Team />} path={`/estudio/equipo`} />
 
             <Route element={<Contact />} path={`/contacto`} />
+            <Route element={<Navigate to="/" />} path={`*`} />
           </Routes>
         </div>
         <Footer />
